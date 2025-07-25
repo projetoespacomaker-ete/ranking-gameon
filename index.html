@@ -43,10 +43,10 @@
 
     iframe {
       border: none;
-      width: 600px;
-      height: 400px;
+      width: 620px;
+      height: 350px;
       overflow: hidden;
-      transform: scale(1.05);
+      transform: scale(1.03);
       transform-origin: top;
     }
 
@@ -65,19 +65,20 @@
     }
 
     .logo {
-      height: 40px;
+      height: 50px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <img src="titulo.png" class="titulo" alt="Ranking Game ON" />
-    <div class="subtitulo">Acompanhe a classificação em tempo real</div>
+    <div class="subtitulo">Acompanhe a classificação em tempo real 🏆</div>
     <div class="planilha-container">
       <iframe 
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&range=A1:C10&widget=false&headers=false"
-        allowfullscreen>
-      </iframe>
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&range=A1:C10&widget=false&chrome=false&headers=false"
+        sandbox="allow-scripts allow-same-origin allow-popups"
+        loading="lazy"
+      ></iframe>
     </div>
   </div>
 
@@ -89,11 +90,13 @@
   <script>
     setInterval(() => {
       const iframe = document.querySelector("iframe");
-      iframe.src = iframe.src;
+      const src = iframe.src.split("?")[0];
+      iframe.src = `${src}?gid=1125098192&single=true&range=A1:C10&widget=false&chrome=false&headers=false`;
     }, 30000); // Atualiza a cada 30 segundos
   </script>
 </body>
 </html>
+
 
 
 
