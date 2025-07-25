@@ -1,85 +1,96 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="30" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranking Game On</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="30"> <!-- Atualiza a cada 30s -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranking Game ON</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('fundo.png') no-repeat center center fixed;
+      padding: 0;
+      background: url("fundo.png") no-repeat center center fixed;
       background-size: cover;
+      font-family: Arial, sans-serif;
       color: white;
       text-align: center;
     }
 
-    header {
-      padding-top: 30px;
+    .titulo {
+      margin-top: 20px;
     }
 
-    .titulo-img {
+    .titulo img {
       max-width: 90%;
       height: auto;
     }
 
     .subtitulo {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #ddd;
+      font-size: 20px;
+      font-weight: 300;
+      margin-top: -10px;
+      margin-bottom: 20px;
     }
 
-    .planilha {
-      margin: 30px auto;
-      width: 90%;
-      max-width: 900px;
-      height: 450px;
-      overflow: hidden;
-      border: none;
-    }
-
-    footer {
-      margin-top: 40px;
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      right: 30px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 70px; /* Tamanho maior */
+    }
+
+    .logo-container span {
+      font-size: 20px;
+      font-weight: bold;
       color: white;
-      font-size: 1em;
     }
 
-    .logo {
-      height: 80px; /* AUMENTADO */
-      margin-right: 15px;
-    }
-
-    iframe::-webkit-scrollbar {
-      display: none;
+    .planilha-container {
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
     }
 
     iframe {
       border: none;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="titulo.png" alt="Ranking Game On" class="titulo-img" />
-    <div class="subtitulo">Acompanhe a classificação em tempo real 🏆</div>
-  </header>
-
-  <section>
-    <iframe
-      class="planilha"
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/htmlview?gid=1125098192&range=A1:D10&widget=false&headers=false"
-    ></iframe>
-  </section>
-
-  <footer>
-    <img src="banners game on- logo.png" alt="Logo Game On" class="logo" />
+  <!-- Logo do evento no topo direito -->
+  <div class="logo-container">
+    <img src="banners game on- logo.png" alt="Logo Game ON">
     <span>2025 ETE FMC</span>
-  </footer>
+  </div>
+
+  <!-- Imagem título -->
+  <div class="titulo">
+    <img src="titulo.png" alt="Ranking Game ON">
+  </div>
+
+  <!-- Subtítulo -->
+  <div class="subtitulo">
+    Acompanhe a classificação em tempo real 🏆
+  </div>
+
+  <!-- Planilha incorporada -->
+  <div class="planilha-container">
+    <iframe 
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/htmlview?gid=1125098192&range=A1:D10&widget=false&headers=false">
+    </iframe>
+  </div>
 
 </body>
 </html>
