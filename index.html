@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ranking Game ON</title>
+  <meta http-equiv="refresh" content="30">
   <style>
     body {
       margin: 0;
@@ -19,25 +20,33 @@
     }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px 20px;
       min-height: 100vh;
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      color: #00ffff;
-      font-size: 36px;
-      margin-bottom: 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    p.subtitulo {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 30px;
     }
 
     iframe {
-      display: block;
-      margin: 0 auto;
       width: 90%;
-      height: 600px;
+      max-width: 1000px;
+      height: 450px;
       border: none;
       background-color: white;
+      margin: 0 auto;
+      display: block;
     }
 
     footer {
@@ -50,17 +59,17 @@
 </head>
 <body>
   <div class="container">
-    <h1>Ranking Game ON</h1>
+    <h1>🏆 Ranking Game ON</h1>
+    <p class="subtitulo">acompanhe a classificação em tempo real</p>
 
     <iframe
       src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&chrome=false&widget=false&headers=false">
     </iframe>
     
-    <footer>
-      © 2025 ETE FMC - Game ON
-    </footer>
+    <footer>© 2025 ETE FMC - Game ON</footer>
   </div>
 </body>
 </html>
+
 
 
