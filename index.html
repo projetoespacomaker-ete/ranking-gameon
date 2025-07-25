@@ -1,74 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="30" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ranking Game ON</title>
-  <meta http-equiv="refresh" content="30">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      color: white;
       background-color: #000;
-      background-image: url('banners game on- logo.png');
-      background-repeat: repeat;
-      background-size: 150px; /* Ajuste o tamanho para mais densidade */
-      background-attachment: fixed;
-      background-position: center;
-    }
-
-    .container {
-      background-color: rgba(0, 0, 0, 0.7); /* Fundo levemente escuro só atrás do conteúdo */
-      padding: 40px 20px;
-      min-height: 100vh;
+      color: white;
+      font-family: Arial, sans-serif;
       text-align: center;
     }
 
-    h1 {
-      color: white;
-      font-weight: bold;
-      font-size: 40px;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    .header {
+      margin-top: 20px;
     }
 
-    p.subtitulo {
-      font-size: 18px;
+    .header img.title {
+      max-width: 90%;
+      height: auto;
+    }
+
+    .subtext {
+      font-size: 1rem;
       color: #ccc;
-      margin-bottom: 30px;
+      margin-top: 8px;
+      margin-bottom: 20px;
     }
 
     iframe {
-      width: 90%;
-      max-width: 1000px;
-      height: 450px;
+      width: 80vw;
+      height: 450px; /* Para exibir até a linha 10 */
       border: none;
-      background-color: white;
-      margin: 0 auto;
-      display: block;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 16px;
-      color: #ccc;
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: #888;
+    }
+
+    .footer img {
+      height: 30px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🏆 Ranking Game ON</h1>
-    <p class="subtitulo">acompanhe a classificação em tempo real</p>
+  <div class="header">
+    <img src="titulo (2).png" alt="Ranking Game ON" class="title" />
+    <div class="subtext">Acompanhe a classificação em tempo real 🏆</div>
+  </div>
 
-    <iframe
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&chrome=false&widget=false&headers=false">
-    </iframe>
-    
-    <footer>© 2025 ETE FMC - Game ON</footer>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&range=A1:E10&widget=false&headers=false"></iframe>
+
+  <div class="footer">
+    <img src="banners game on- logo.png" alt="Logo Game ON" />
+    <span>2025 ETE FMC - Game ON</span>
   </div>
 </body>
 </html>
