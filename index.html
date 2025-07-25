@@ -1,99 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="30">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ranking Game ON</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url("fundo.png") no-repeat center center fixed;
+      background: url('fundo.png') no-repeat center center fixed;
       background-size: cover;
       font-family: Arial, sans-serif;
       color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh;
+      overflow: hidden;
     }
 
-    .titulo img {
-      max-width: 90%;
-      margin-top: 20px;
+    .container {
+      text-align: center;
+      padding: 20px 10px 0 10px;
+    }
+
+    .titulo {
+      max-width: 600px;
+      width: 90%;
+      margin: 0 auto;
     }
 
     .subtitulo {
-      font-size: 20px;
+      font-size: 1.2rem;
       font-weight: 300;
-      margin-top: -10px;
-      margin-bottom: 20px;
+      color: #ffffffcc;
+      margin-bottom: 10px;
     }
 
     .planilha-container {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 0 auto;
       overflow: hidden;
-      width: 100%;
-      height: 360px;
     }
 
-    .planilha-container iframe {
-      width: 700px;
-      height: 360px;
+    iframe {
       border: none;
-      transform: scale(1.05);
-      transform-origin: top center;
+      width: 600px;
+      height: 400px;
       overflow: hidden;
+      transform: scale(1.05);
+      transform-origin: top;
     }
 
     .rodape {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 1rem;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin: 30px 0;
     }
 
-    .rodape img {
-      height: 70px;
-    }
-
-    .rodape span {
-      font-size: 18px;
-      font-weight: bold;
+    .logo {
+      height: 40px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Título com imagem -->
-  <div class="titulo">
-    <img src="titulo.png" alt="Ranking Game ON">
+  <div class="container">
+    <img src="titulo.png" class="titulo" alt="Ranking Game ON" />
+    <div class="subtitulo">Acompanhe a classificação em tempo real</div>
+    <div class="planilha-container">
+      <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&range=A1:C10&widget=false&headers=false"
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
 
-  <!-- Subtítulo -->
-  <div class="subtitulo">
-    Acompanhe a classificação em tempo real
-  </div>
-
-  <!-- Planilha incorporada (somente A–C e linhas 1–10 visíveis) -->
-  <div class="planilha-container">
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&range=A1:C10&chrome=false&headers=false"
-      scrolling="no">
-    </iframe>
-  </div>
-
-  <!-- Rodapé com logo e nome -->
   <div class="rodape">
-    <img src="banners game on- logo.png" alt="Logo Game ON">
-    <span>ETE FMC</span>
+    <img src="banners game on- logo.png" alt="Logo Game ON" class="logo" />
+    <span>2025 ETE FMC</span>
   </div>
 
+  <script>
+    setInterval(() => {
+      const iframe = document.querySelector("iframe");
+      iframe.src = iframe.src;
+    }, 30000); // Atualiza a cada 30 segundos
+  </script>
 </body>
 </html>
 
