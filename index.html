@@ -1,69 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="refresh" content="30" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranking Game ON</title>
+  <title>Ranking Game On</title>
   <style>
     body {
       margin: 0;
-      background-color: #000;
-      color: white;
       font-family: Arial, sans-serif;
+      background: url('fundo.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
       text-align: center;
     }
 
-    .header {
-      margin-top: 20px;
+    header {
+      padding-top: 30px;
     }
 
-    .header img.title {
+    .titulo-img {
       max-width: 90%;
       height: auto;
     }
 
-    .subtext {
-      font-size: 1rem;
-      color: #ccc;
-      margin-top: 8px;
-      margin-bottom: 20px;
+    .subtitulo {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #ddd;
+    }
+
+    .planilha {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 900px;
+      height: 450px;
+      overflow: hidden;
+      border: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1em;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    iframe::-webkit-scrollbar {
+      display: none;
     }
 
     iframe {
-      width: 80vw;
-      height: 450px; /* Para exibir até a linha 10 */
       border: none;
-      overflow: hidden;
-    }
-
-    .footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      color: #888;
-    }
-
-    .footer img {
-      height: 30px;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <img src="titulo (2).png" alt="Ranking Game ON" class="title" />
-    <div class="subtext">Acompanhe a classificação em tempo real 🏆</div>
-  </div>
 
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&range=A1:E10&widget=false&headers=false"></iframe>
+  <header>
+    <img src="titulo.png" alt="Ranking Game On" class="titulo-img" />
+    <div class="subtitulo">Acompanhe a classificação em tempo real 🏆</div>
+  </header>
 
-  <div class="footer">
-    <img src="banners game on- logo.png" alt="Logo Game ON" />
-    <span>2025 ETE FMC - Game ON</span>
-  </div>
+  <section>
+    <iframe
+      class="planilha"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&amp;single=true&amp;range=A1:D10&amp;widget=false&amp;headers=false"
+    ></iframe>
+  </section>
+
+  <footer>
+    <img src="banners game on- logo.png" alt="Logo Game On" class="logo" />
+    <span>2025 ETE FMC</span>
+  </footer>
+
 </body>
 </html>
 
