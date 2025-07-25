@@ -14,15 +14,15 @@
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-    }
-
-    .titulo {
-      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
     }
 
     .titulo img {
       max-width: 90%;
-      height: auto;
+      margin-top: 20px;
     }
 
     .subtitulo {
@@ -32,50 +32,46 @@
       margin-bottom: 20px;
     }
 
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-container img {
-      height: 70px; /* Tamanho maior */
-    }
-
-    .logo-container span {
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-    }
-
     .planilha-container {
-      width: 100%;
-      height: 500px;
-      overflow: hidden;
       display: flex;
       justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      height: 400px; /* Menor altura para exibir até linha 10 */
+      margin: 0 auto;
+      width: 90%;
     }
 
-    iframe {
-      border: none;
+    .planilha-container iframe {
       width: 100%;
       height: 100%;
+      border: none;
+      transform: scale(1.0);
+      transform-origin: top left;
       overflow: hidden;
+    }
+
+    .rodape {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 30px 0;
+    }
+
+    .rodape img {
+      height: 70px;
+    }
+
+    .rodape span {
+      font-size: 18px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo do evento no topo direito -->
-  <div class="logo-container">
-    <img src="banners game on- logo.png" alt="Logo Game ON">
-    <span>2025 ETE FMC</span>
-  </div>
-
-  <!-- Imagem título -->
+  <!-- Título com imagem -->
   <div class="titulo">
     <img src="titulo.png" alt="Ranking Game ON">
   </div>
@@ -85,12 +81,23 @@
     Acompanhe a classificação em tempo real 🏆
   </div>
 
-  <!-- Planilha incorporada -->
+  <!-- Planilha -->
   <div class="planilha-container">
     <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/htmlview?gid=1125098192&range=A1:D10&widget=false&headers=false">
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4wu0dl8h0glNkFN_FEZEzoOKAqpuBioj1ijppszHSmCOkp1f48ScRCGCMpYcZDMsADLqzviPiZ4Ko/pubhtml?gid=1125098192&single=true&chrome=false&headers=false"
+      scrolling="no">
     </iframe>
   </div>
+
+  <!-- Rodapé com logo e nome -->
+  <div class="rodape">
+    <img src="banners game on- logo.png" alt="Logo Game ON">
+    <span>ETE FMC</span>
+  </div>
+
+</body>
+</html>
+
 
 </body>
 </html>
