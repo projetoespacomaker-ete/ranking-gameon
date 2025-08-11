@@ -115,10 +115,10 @@
   </div>
 
   <script>
-    // URL do seu web app (Apps Script)
-    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbytFM9iRgXuCxp0-A5dGGDeBiwJBNSnG-SGnZAA1aSC9EmbFVpKRpA8peONrFkxGTXQ/exec?action=ranking';
+    // URL do Web App do Google Apps Script (com parâmetro action=ranking)
+    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwRsm9PCFe2PqGcqkDyk01ZcjiLYu96cfsSCikqV4hbbjIQYj_OkX_E9LIevHxzcSJQ/exec?action=ranking';
 
-    // Função callback JSONP chamada pelo Apps Script
+    // Callback JSONP chamado pelo Web App com o array de ranking
     function showRanking(data){
       const tbody = document.querySelector('#rankingTable tbody');
       tbody.innerHTML = '';
@@ -129,24 +129,19 @@
 
       data.forEach((item, idx) => {
         const tr = document.createElement('tr');
-
-        // Destaque para 1º a 3º lugar
         if (idx === 0) tr.classList.add('rank-1');
         if (idx === 1) tr.classList.add('rank-2');
         if (idx === 2) tr.classList.add('rank-3');
 
-        // Nome com medalhas para os 3 primeiros
-        const tdNome = document.createElement('td');
-        let medalha = '';
-        if(idx === 0) medalha = '🥇 ';
-        else if(idx === 1) medalha = '🥈 ';
-        else if(idx === 2) medalha = '🥉 ';
+        // Adiciona medalhas nas primeiras posições
+        const medalha = idx === 0 ? '🥇 ' : idx === 1 ? '🥈 ' : idx === 2 ? '🥉 ' : '';
+        const tdNome = document.createElement('td'); 
         tdNome.textContent = medalha + item.nome;
 
-        const tdEscola = document.createElement('td');
+        const tdEscola = document.createElement('td'); 
         tdEscola.textContent = item.escola;
 
-        const tdPontos = document.createElement('td');
+        const tdPontos = document.createElement('td'); 
         tdPontos.textContent = item.pontos;
 
         tr.appendChild(tdNome);
@@ -163,15 +158,16 @@
 
       const s = document.createElement('script');
       s.id = 'jsonpScript';
-      s.src = WEBAPP_URL + '?callback=showRanking&ts=' + Date.now();
+      s.src = WEBAPP_URL + '&callback=showRanking&ts=' + Date.now();
       s.async = true;
       document.body.appendChild(s);
     }
 
+    // Inicializa a chamada e atualiza a cada 30 segundos
     (function init(){
       if (!WEBAPP_URL || WEBAPP_URL.indexOf('https://') !== 0) {
         const tbody = document.querySelector('#rankingTable tbody');
-        tbody.innerHTML = '<tr><td colspan="3" style="padding:18px; text-align:center; color:orange;">ERRO: cole a URL do Web App em WEBAPP_URL no <code>index.html</code></td></tr>';
+        tbody.innerHTML = '<tr><td colspan="3" style="padding:18px; text-align:center; color:orange;">ERRO: cole a URL do Web App corretamente em WEBAPP_URL</td></tr>';
         return;
       }
       loadDataJSONP();
@@ -180,6 +176,7 @@
   </script>
 </body>
 </html>
+
 
 
 
