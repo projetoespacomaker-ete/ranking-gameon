@@ -115,10 +115,10 @@
   </div>
 
   <script>
-    // === CONFIGURE AQUI: cole a URL do seu web app (Apps Script) entre aspas ===
-    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbz7TdzEhh1-0k-ks09e39VUTIZELCXEC6IFf4py1yOCz-FdZzcnmr9rsYv_7svchMMH/exec';
+    // URL do seu web app (Apps Script)
+    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwTylZp-CSrck14hIuBDPo3NyLO_jvVWFi7BGuy_kcCGvLvIIBjl56-bqSiX_qyLvi_/exec';
 
-    // função de callback JSONP: o Apps Script chamará showRanking(array)
+    // Função callback JSONP chamada pelo Apps Script
     function showRanking(data){
       const tbody = document.querySelector('#rankingTable tbody');
       tbody.innerHTML = '';
@@ -129,13 +129,25 @@
 
       data.forEach((item, idx) => {
         const tr = document.createElement('tr');
+
+        // Destaque para 1º a 3º lugar
         if (idx === 0) tr.classList.add('rank-1');
         if (idx === 1) tr.classList.add('rank-2');
         if (idx === 2) tr.classList.add('rank-3');
 
-        const tdNome = document.createElement('td'); tdNome.textContent = item.nome;
-        const tdEscola = document.createElement('td'); tdEscola.textContent = item.escola;
-        const tdPontos = document.createElement('td'); tdPontos.textContent = item.pontos;
+        // Nome com medalhas para os 3 primeiros
+        const tdNome = document.createElement('td');
+        let medalha = '';
+        if(idx === 0) medalha = '🥇 ';
+        else if(idx === 1) medalha = '🥈 ';
+        else if(idx === 2) medalha = '🥉 ';
+        tdNome.textContent = medalha + item.nome;
+
+        const tdEscola = document.createElement('td');
+        tdEscola.textContent = item.escola;
+
+        const tdPontos = document.createElement('td');
+        tdPontos.textContent = item.pontos;
 
         tr.appendChild(tdNome);
         tr.appendChild(tdEscola);
@@ -144,9 +156,8 @@
       });
     }
 
-    // Carrega JSONP: cria um <script src="WEBAPP_URL?callback=showRanking&ts=...">
+    // Carrega dados via JSONP
     function loadDataJSONP(){
-      // Remove script anterior se existir
       const old = document.getElementById('jsonpScript');
       if(old) old.remove();
 
@@ -157,7 +168,6 @@
       document.body.appendChild(s);
     }
 
-    // inicializa
     (function init(){
       if (!WEBAPP_URL || WEBAPP_URL.indexOf('https://') !== 0) {
         const tbody = document.querySelector('#rankingTable tbody');
@@ -165,7 +175,6 @@
         return;
       }
       loadDataJSONP();
-      // refresh a cada 30s
       setInterval(loadDataJSONP, 30000);
     })();
   </script>
